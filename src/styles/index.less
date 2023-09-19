@@ -11,6 +11,8 @@
   --sec-300: hsl(349deg 55% 41% / 100%);
   --sec-400: hsl(349deg 69% 36% / 100%);
   // neutral colors
+  --white: hsl(65deg 22% 88% / 100%);
+  --black: hsl(68deg 16% 16% / 100%);
   --txt-clr: hsl(68deg 16% 16% / 100%);
   --bg-clr: hsl(60deg 25% 98% /100%);
 
@@ -68,6 +70,7 @@ html.dark {
   margin: 0;
   padding: 0;
   list-style: none;
+  box-sizing: border-box;
 }
 
 body {
@@ -87,6 +90,10 @@ h2,
 h3,
 h4 {
   font-family: var(--header-fnt);
+}
+
+h1 {
+  font-size: var(--step-5);
 }
 
 /* Utility Classes */
@@ -114,7 +121,7 @@ h4 {
   width: 2rem;
   height: 2rem;
   padding: 0.25rem;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   color: var(--pri-500);
 
   &:hover {
@@ -124,4 +131,9 @@ h4 {
 
 .hidden {
   display: none;
+}
+
+.btn {
+  padding: 0.75em 1.25em;
+  border-radius: 4px;
 }

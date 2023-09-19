@@ -1,0 +1,140 @@
+#hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100dvh - 6rem);
+
+  .hero-image {
+    position: absolute;
+    z-index: -100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background-color: hsl(0deg 0% 0% / 60%);
+    clip-path: polygon(0 0, 85% 0%, 55% 100%, 0% 100%);
+  }
+
+  .container {
+    padding: var(--section-padding);
+    padding-bottom: clamp(8.125rem, 12.5vw, 10.9375rem);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      color: var(--pri-50);
+      line-height: 110%;
+    }
+
+    p {
+      padding: 1em 0;
+      font-size: var(--step-1);
+      color: color-mix(in srgb, var(--pri-50) 90%, #000 10%);
+      max-width: 40ch;
+    }
+  }
+
+  .cta {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .primary {
+    position: relative;
+    color: var(--white);
+    background: var(--sec-400);
+    z-index: 1;
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background-color: var(--sec-200);
+      transition: ease 0.3s;
+      border-radius: 4px;
+    }
+  }
+
+  .secondary {
+    position: relative;
+    color: var(--white);
+    background: transparent;
+    z-index: 1;
+    outline: 1px solid var(--white);
+    outline-offset: -1px;
+    transition: opacity 0.3s;
+
+    &:hover {
+      color: var(--black);
+
+      &::before {
+        width: 100%;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background-color: var(--white);
+      transition: ease 0.3s;
+      border-radius: 4px;
+    }
+  }
+}
+
+@media only screen and (width >= 81.25rem) {
+  #hero {
+    position: relative;
+    background: url('../../assets//images/hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* creates parallax effect on background image */
+    background-attachment: fixed;
+
+    /* remove img tag so we can make parallax work */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background-color: hsl(0deg 0% 0% / 50%);
+      clip-path: polygon(0 0, 85% 0%, 55% 100%, 0% 100%);
+    }
+  }
+
+  #hero .cs-picture img {
+    display: none;
+  }
+}

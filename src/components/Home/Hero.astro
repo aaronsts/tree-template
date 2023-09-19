@@ -1,0 +1,23 @@
+---
+import '../../styles/home/hero.less';
+import heroImage from '../../assets/images/hero-image.jpg';
+import { Image } from 'astro:assets';
+---
+
+<section id="hero">
+  <div class="container">
+    <h1>
+      Caring for Trees,<br />
+       Preserving Beauty.
+    </h1>
+    <p>
+      Over 40 years, Heartwood has evolved into an award winning, nationally recognized industry
+      leader.
+    </p>
+    <div class="cta">
+      <a href="#" class="btn primary">Get a Quote</a>
+      <a href="#" class="btn secondary">Learn More</a>
+    </div>
+  </div>
+  <Image class="hero-image" src={heroImage} alt="Close up from a tree" />
+</section>
