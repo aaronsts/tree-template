@@ -5,11 +5,16 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Header from "../components/layout/Header.astro";
+import '../styles/index.less';
+import Header from '../components/layout/Header.astro';
+
+// Supports weights 400-900
+import '@fontsource-variable/playfair-display';
+import '@fontsource-variable/work-sans';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" x-cloak x-data :class="{ 'dark': $store.theme.isDark }">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -21,5 +26,41 @@ import Header from "../components/layout/Header.astro";
   <body>
     <Header />
     <slot />
+    <style is:global>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+    <script>
+      import Alpine from 'alpinejs';
+      import collapse from '@alpinejs/collapse';
+
+      Alpine.plugin(collapse);
+
+      Alpine.store('theme', {
+        init() {
+          this.dark = (() => {
+            if (typeof localStorage !== undefined && localStorage.getItem('theme')) {
+              return localStorage.getItem('theme') === 'dark';
+            }
+            if (window.matchMedia('(prefer-color-scheme: dark)').matches) {
+              return true;
+            }
+            return false;
+          })();
+        },
+
+        isDark: false,
+
+        toggle() {
+          this.isDark = !this.isDark;
+          localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+        },
+      });
+
+      window.Alpine = Alpine;
+
+      Alpine.start();
+    </script>
   </body>
 </html>

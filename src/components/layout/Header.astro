@@ -1,147 +1,141 @@
 ---
-import "../../styles/layout/header.less";
+import '../../styles/layout/header.less';
+
+const links = [
+  {
+    name: 'Home',
+    href: '/',
+  },
+  {
+    name: 'Services',
+    href: '/services',
+  },
+  {
+    name: 'About',
+    href: '/about',
+  },
+  {
+    name: 'Contact',
+    href: '/contact',
+  },
+];
 ---
 
-<!-- Navigation -->
-<header id="cs-navigation">
-  <div class="cs-container">
-    <!--Nav Logo-->
-    <a href="" class="cs-logo" aria-label="back to home">
+<header id="navigation-bar" x-data="{open: false}">
+  <div class="container">
+    <!-- Brand Logo -->
+    <a href="/">
+      <span class="sr-only">Oakheart Logo</span>
       <img
-        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Flogo-black.svg"
-        alt="logo"
-        width="210"
-        height="29"
-        aria-hidden="true"
-        decoding="async"
+        class="logo"
+        width="235"
+        height="56"
+        :src="$store.theme.isDark ? '/assets/logo-inverted.svg' : '/assets/logo.svg'"
       />
     </a>
-    <!--Navigation List-->
-    <nav class="cs-nav" role="navigation">
-      <!--Mobile Nav Toggle-->
-      <button class="cs-toggle" aria-label="mobile menu toggle">
-        <div class="cs-box" aria-hidden="true">
-          <span class="cs-line cs-line1" aria-hidden="true"></span>
-          <span class="cs-line cs-line2" aria-hidden="true"></span>
-          <span class="cs-line cs-line3" aria-hidden="true"></span>
-        </div>
-      </button>
-      <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
-      <div class="cs-ul-wrapper">
-        <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-          <li class="cs-li">
-            <a href="" class="cs-li-link cs-active"> Home</a>
-          </li>
-          <li class="cs-li">
-            <a href="" class="cs-li-link"> About</a>
-          </li>
-          <li class="cs-li">
-            <a href="" class="cs-li-link"> Services</a>
-          </li>
-          <li class="cs-li">
-            <a href="" class="cs-li-link"> About Us</a>
-          </li>
-          <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
-          <li class="cs-li cs-dropdown" tabindex="0">
-            <span class="cs-li-link">
-              Weight Loss
-              <img
-                class="cs-drop-icon"
-                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fdown.svg"
-                alt="dropdown icon"
-                width="15"
-                height="15"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </span>
-            <ul class="cs-drop-ul">
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Semaglutide</a>
+    <div class="right-side-navigation">
+      <!-- Desktop navigation -->
+      <nav class="desktop-navigation">
+        <ul>
+          {
+            links.map((link) => (
+              <li>
+                <a class="nav-link" href={link.href}>
+                  {link.name}
+                </a>
               </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Tirezapetide</a>
-              </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Semaglutide</a>
-              </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Tirezapetide</a>
-              </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Semaglutide</a>
-              </li>
-              <li class="cs-drop-li">
-                <a href="" class="cs-li-link cs-drop-link">Tirezapetide</a>
-              </li>
-            </ul>
-          </li>
-          <li class="cs-li">
-            <a href="" class="cs-li-link"> FAQ</a>
-          </li>
+            ))
+          }
         </ul>
+      </nav>
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button type="button" x-data @click="$store.theme.toggle()">
+          <span class="sr-only">Toggle theme</span>
+          <svg
+            x-cloak
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon"
+            :class="{'hidden': $store.theme.isDark}"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+            ></path>
+          </svg>
+          <svg
+            x-cloak
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon"
+            :class="{'hidden': !$store.theme.isDark}"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
+            ></path>
+          </svg>
+        </button>
+        <button
+          type="button"
+          class="mobile-nav-button"
+          @click="open = !open"
+          @mousedown="if (open) $event.preventDefault()"
+          @keyup.escape="open = false"
+          aria-expanded="false"
+          :aria-expanded="open.toString()"
+          aria-controls="website-menu"
+        >
+          <span class="sr-only">Toggle mobile navigation</span>
+          <svg
+            x-cloak
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          </svg>
+        </button>
       </div>
-    </nav>
-    <a href="" class="cs-button-solid cs-nav-button">Contact Us</a>
-    <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
-    <button id="dark-mode-toggle" aria-label="dark mode toggle">
-      <svg
-        class="cs-moon"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 480 480"
-        style="enable-background:new 0 0 480 480"
-        xml:space="preserve"
-        ><path
-          d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"
-        ></path></svg
+
+      <!-- Mobile Navigation -->
+      <div
+        x-cloak
+        x-show="open"
+        @click.outside="open = false"
+        x-collapse
+        x-collapse.duration.500ms
+        class="mobile-navigation"
       >
-      <img
-        class="cs-sun"
-        aria-hidden="true"
-        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg"
-        decoding="async"
-        alt="moon"
-        width="15"
-        height="15"
-      />
-    </button>
+        <nav>
+          <ul>
+            {
+              links.map((link) => (
+                <li>
+                  <a class="nav-link" href={link.href}>
+                    {link.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </div>
   </div>
 </header>
-
-<script>
-  // add classes for mobile navigation toggling
-  var CSbody = document.querySelector("body");
-  const CSnavbarMenu = document.querySelector("#cs-navigation");
-  const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
-
-  CShamburgerMenu?.addEventListener("click", function () {
-    CShamburgerMenu.classList.toggle("cs-active");
-    CSnavbarMenu?.classList.toggle("cs-active");
-    CSbody?.classList.toggle("cs-open");
-    // run the function to check the aria-expanded value
-    ariaExpanded();
-  });
-
-  // checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not
-  function ariaExpanded() {
-    const csUL = document.querySelector("#cs-expanded");
-    const csExpanded = csUL?.getAttribute("aria-expanded");
-
-    if (csExpanded === "false") {
-      csUL?.setAttribute("aria-expanded", "true");
-    } else {
-      csUL?.setAttribute("aria-expanded", "false");
-    }
-  }
-
-  // mobile nav toggle code
-  const dropDowns = Array.from(
-    document.querySelectorAll("#cs-navigation .cs-dropdown"),
-  );
-  for (const item of dropDowns) {
-    const onClick = () => {
-      item.classList.toggle("cs-active");
-    };
-    item.addEventListener("click", onClick);
-  }
-</script>
