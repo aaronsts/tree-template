@@ -1,0 +1,119 @@
+/* Mobile - 360px */
+@media only screen and (width >= 0) {
+  #about {
+    padding: var(--section-padding);
+
+    /* clips svg as the screen grows so it doesn't overflow */
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+
+    .cs-content {
+      text-align: left;
+      width: 100%;
+      max-width: (542/16rem);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cs-image-group {
+      font-size: ~'min(2.5vw, 1em)';
+      width: (579/16em);
+      height: (542/16em);
+
+      /* sends it to the top of the flexbox */
+      order: -1;
+      position: relative;
+    }
+
+    .cs-picture {
+      border-radius: 4px;
+
+      /* clips the img tag corners */
+      overflow: hidden;
+      position: absolute;
+      display: block;
+
+      &:hover {
+        &::before {
+          opacity: 0.6;
+        }
+
+        img {
+          transform: scale(1.1);
+        }
+      }
+
+      &::before {
+        /* Hover Box */
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: var(--pri-50);
+        opacity: 0;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        transition: opacity 0.3s;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: transform 0.6s;
+      }
+    }
+
+    .cs-picture1 {
+      width: (204/16em);
+      height: (314/16em);
+      top: 0;
+      left: 0;
+    }
+
+    .cs-picture2 {
+      width: (348/16em);
+      height: (314/16em);
+      top: 0;
+      right: 0;
+    }
+
+    .cs-picture3 {
+      width: (579/16em);
+      height: (202/16em);
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
+
+/* Desktop - 1024px */
+@media only screen and (width >= 64rem) {
+  #about {
+    .container {
+      max-width: (1280/16rem);
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .cs-content {
+      width: 48%;
+    }
+
+    .cs-image-group {
+      font-size: ~'min(1.15vw, 1em)';
+      flex: none;
+
+      /* sends it to the right in the 2nd position */
+      order: 2;
+    }
+  }
+}

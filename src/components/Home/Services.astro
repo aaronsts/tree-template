@@ -1,5 +1,59 @@
 ---
 import '../../styles/home/services.less';
+import { Icon } from 'astro-icon';
+
+const services = [
+  {
+    title: 'Tree Removal',
+    icon: '',
+    description:
+      'Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: '#',
+  },
+  {
+    title: 'Tree Removal',
+    icon: '',
+    description:
+      'Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: '#',
+  },
+  {
+    title: 'Tree Removal',
+    icon: '',
+    description:
+      'Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    link: '#',
+  },
+];
 ---
 
-<section id="services">Helol</section>
+<section id="services">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p>Services</p>
+        <h2>How we can help you</h2>
+      </div>
+      <p class="service-intro">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam dolorum earum qui nisi
+        minima sequi suscipit!
+      </p>
+    </div>
+    <div class="service-card-container">
+      {
+        services.map((service) => (
+          <div class="service-card">
+            <div class="service-card-heading">
+              <Icon name="axe" class="service-icon" />
+              <h3>{service.title}</h3>
+            </div>
+            <p>{service.description}</p>
+            <a href="#" class="btn">
+              Learn More
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

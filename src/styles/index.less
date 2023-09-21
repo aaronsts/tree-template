@@ -4,6 +4,7 @@
   --pri-100: hsl(68deg 36% 66% / 100%);
   --pri-200: hsl(68deg 32% 44% / 100%);
   --pri-300: hsl(68deg 31% 35% / 100%);
+  --pri-400: hsl(68deg 24% 28% / 100%);
   --pri-500: hsl(68deg 16% 16% / 100%);
   // secondary color
   --sec-100: hsl(349deg 44% 73% / 100%);
@@ -17,7 +18,7 @@
   --bg-clr: hsl(60deg 25% 98% /100%);
 
   /* 60px - 100px top and bottom */
-  --section-padding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+  --section-padding: clamp(3.75rem, 7.82vw, 6.25rem) 0;
 
   /* Fonts */
   --header-fnt: 'Playfair Display Variable', sans-serif;
@@ -49,19 +50,21 @@
 
 html.dark {
   // primary color
-  --pri-50: hsl(68deg 16% 16% / 100%);
-  --pri-100: hsl(68deg 36% 66% / 100%);
-  --pri-200: hsl(68deg 32% 44% / 100%);
-  --pri-300: hsl(68deg 31% 35% / 100%);
-  --pri-500: hsl(65deg 22% 88% / 100%);
+  --pri-50: hsl(68deg 16% 16%);
+  --pri-100: hsl(68deg 36% 66%);
+  --pri-200: hsl(68deg 32% 44%);
+  --pri-300: hsl(68deg 31% 35%);
+  --pri-500: hsl(65deg 22% 88%);
   // secondary color
-  --sec-100: hsl(349deg 44% 73% / 100%);
-  --sec-200: hsl(349deg 49% 57% / 100%);
-  --sec-300: hsl(349deg 55% 41% / 100%);
-  --sec-400: hsl(349deg 69% 36% / 100%);
+  --sec-100: hsl(349deg 44% 73%);
+  --sec-200: hsl(349deg 49% 52%);
+  --sec-300: hsl(349deg 55% 41%);
+  --sec-400: hsl(349deg 52% 29%);
+  --sec-500: hsl(349deg 47% 14%);
+
   // neutral colors
-  --txt-clr: hsl(60deg 25% 98% / 100%);
-  --bg-clr: hsl(68deg 16% 16% / 100%);
+  --txt-clr: hsl(60deg 25% 98%);
+  --bg-clr: hsl(68deg 16% 16%);
 }
 
 *,
@@ -94,6 +97,10 @@ h4 {
 
 h1 {
   font-size: var(--step-5);
+}
+
+h2 {
+  font-size: var(--step-3);
 }
 
 /* Utility Classes */
@@ -136,4 +143,38 @@ h1 {
 .btn {
   padding: 0.75em 1.25em;
   border-radius: 4px;
+}
+
+.btn-primary {
+  color: var(--white);
+  background: var(--sec-400);
+  transition: 0.3s;
+
+  &:hover {
+    background-color: var(--sec-200);
+  }
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+
+  h2 {
+    line-height: 110%;
+    color: var(--pri-500);
+  }
+
+  p {
+    color: var(--pri-300);
+    text-transform: uppercase;
+    letter-spacing: 0.0875rem;
+  }
+}
+
+@media only screen and (width <= 49.125rem) {
+  h1 {
+    font-size: var(--step-4);
+  }
 }

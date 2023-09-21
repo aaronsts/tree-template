@@ -1,0 +1,119 @@
+/* Mobile - 360px */
+@media only screen and (width >= 0) {
+  #cta {
+    padding: var(--section-padding);
+    background-color: var(--primary);
+    position: relative;
+    z-index: 1;
+
+    .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+
+    .cs-flex {
+      max-width: (630/16rem);
+    }
+
+    .cs-topper {
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: 0.1em;
+      color: var(--sec-100);
+      margin-bottom: (4/16rem);
+      display: block;
+    }
+
+    .cs-title {
+      color: var(--white);
+      font-size: var(--step-3);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: (700/16rem);
+      margin: 0 0 (16/16rem) 0;
+      // color: var(--headerColor);
+      position: relative;
+    }
+
+    .cs-button-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: (16/16rem);
+    }
+
+    .btn-secondary {
+      color: var(--bg-clr);
+      border: 1px solid var(--white);
+      transition: ease 0.3s;
+
+      &:hover {
+        color: var(--black);
+        background-color: var(--white);
+      }
+    }
+
+    .cs-background {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      &::before {
+        /* background color overlay */
+        content: '';
+        position: absolute;
+        display: block;
+        height: 100%;
+        width: 100%;
+        background: #1a1a1a;
+        opacity: 0.78;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        /* Makes img tag act as a background image */
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+/* Small Desktop - 1024px */
+@media only screen and (width >= 64rem) {
+  #cta-1071 {
+    .cs-content {
+      text-align: left;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .cs-button-box {
+      flex-wrap: nowrap;
+      align-items: center;
+      flex: none;
+    }
+  }
+}
