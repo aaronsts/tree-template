@@ -1,0 +1,93 @@
+---
+import '../../styles/layout/footer.less';
+---
+
+<footer id="cs-footer-269">
+  <div class="cs-container">
+    <!-- Logo Group -->
+    <div class="cs-logo-group">
+      <a aria-label="go back home" href="/">
+        <!-- <span class="sr-only">Oakheart Logo</span> -->
+        <img
+          alt="Oakheart logo"
+          class="logo"
+          width="235"
+          height="56"
+          :src="!$store.theme.isDark ? '/assets/logo-inverted.svg' : '/assets/logo.svg'"
+        />
+      </a>
+    </div>
+    <!-- Links -->
+    <ul class="cs-nav">
+      <li class="cs-nav-li">
+        <span class="cs-header">Sitemap</span>
+      </li>
+      <li class="cs-nav-li">
+        <a class="cs-nav-link" href="">Home</a>
+      </li>
+      <li class="cs-nav-li">
+        <a class="cs-nav-link" href="">About</a>
+      </li>
+      <li class="cs-nav-li">
+        <a class="cs-nav-link" href="">Services</a>
+      </li>
+
+      <li class="cs-nav-li">
+        <a class="cs-nav-link" href="">Contact</a>
+      </li>
+    </ul>
+    <!-- Contact Info -->
+    <ul class="cs-contact">
+      <li class="cs-nav-li">
+        <span class="cs-header">Contact</span>
+      </li>
+      <li class="cs-contact-li">
+        <a class="cs-contact-link" href="tel: 229-854-8201">(229) 854 8201</a>
+      </li>
+      <li class="cs-contact-li">
+        <a class="cs-contact-link" href="mailto:amy@changingviews.media">amy@changingviews.media</a>
+      </li>
+      <!-- Social Media -->
+      <li class="cs-contact-li cs-social-group">
+        <div class="cs-social">
+          <a class="cs-social-link" aria-label="visit google profile" href="">
+            <img
+              class="cs-social-img"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.digitaloceanspaces.com/Social/google.svg"
+              alt="google"
+              width="11"
+              height="11"
+            />
+          </a>
+          <a class="cs-social-link" aria-label="visit facebook profile" href="">
+            <img
+              class="cs-social-img"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.digitaloceanspaces.com/Social/Facebook.svg"
+              alt="facebook"
+              width="6"
+              height="11"
+            />
+          </a>
+          <a class="cs-social-link" aria-label="visit instagram profile" href="">
+            <img
+              class="cs-social-img"
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.digitaloceanspaces.com/Social/instagram.svg"
+              alt="instagram"
+              width="11"
+              height="11"
+            />
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</footer>

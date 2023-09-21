@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import '../../styles/home/reviews.less';
+import treeImage from '../../assets/images/tree-image.avif';
+---
+
+<section id="reviews">
+  <div class="section-header">
+    <span>reviews</span>
+    <h2>Don't take our word for it</h2>
+  </div>
+  <div class="reviews-container">
+    <div class="review-list">
+      <div class="review">
+        <h3>Quick response time</h3>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. In incidunt error id. Sit ullam
+          molestiae accusamus quidem quam, quasi impedit, odio quibusdam, laborum voluptatibus
+          deserunt dolorem eum beatae fuga ipsam.
+        </p>
+        <div class="review-footer">
+          <span>Pamela White</span>
+          <span>20 AUG 2023</span>
+        </div>
+      </div>
+      <div class="review">
+        <h3>Quick response time</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, quaerat.</p>
+        <div class="review-footer">
+          <span>Pamela White</span>
+          <span>20 AUG 2023</span>
+        </div>
+      </div>
+      <div class="review">
+        <h3>Quick response time</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, quaerat.</p>
+        <div class="review-footer">
+          <span>Pamela White</span>
+          <span>20 AUG 2023</span>
+        </div>
+      </div>
+    </div>
+    <div class="review-pictures">
+      <Image src={treeImage} alt="a tree next to a dirtroad" height={500} />
+    </div>
+  </div>
+</section>

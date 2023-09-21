@@ -11,6 +11,7 @@ import Header from '../components/layout/Header.astro';
 // Supports weights 400-900
 import '@fontsource-variable/playfair-display';
 import '@fontsource-variable/work-sans';
+import Footer from '../components/layout/Footer.astro';
 ---
 
 <!doctype html>
@@ -26,6 +27,7 @@ import '@fontsource-variable/work-sans';
   <body>
     <Header />
     <slot />
+    <Footer />
     <style is:global>
       [x-cloak] {
         display: none !important;

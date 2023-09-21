@@ -1,0 +1,240 @@
+/* Mobile - 360px */
+@media only screen and (width >= 0) {
+  :root {
+    /* Add this code to your global stylesheet that is shared on all pages of your website. These are the core styles for every Stitch and it's text content and variables.  This way, you can only need to add it once and you can copy and paste your Stitches without having to remove them from every Stitch and you can edit these styles for every single Stitch in your site all at once for easier and faster customization across the whole site */
+    --primary: hsl(68deg 31% 35% / 100%);
+    --primaryLight: hsl(68deg 16% 16% / 100%);
+    --secondary: hsl(68deg 31% 35% / 100%);
+    --secondaryLight: hsl(68deg 31% 35% / 100%);
+    --headerColor: hsl(65deg 22% 88% / 100%);
+    --bodyTextColor: hsl(65deg 22% 88% / 100%);
+    --bodyTextColorWhite: hsl(65deg 22% 88% / 100%);
+
+    /* 13px - 16px */
+    --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+
+    /* 31px - 49px */
+    --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+    --bodyFontSize: 1rem;
+
+    /* 60px - 100px top and bottom */
+    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+  }
+
+  #cs-footer-269 {
+    /* remove the font family so the Stitch inherits the fonts from your global stylesheet */
+    font-family: Roboto, Arial, sans-serif;
+
+    /* 60px - 100px top and bottom */
+    padding: clamp(3.75rem, 7.82vw, 6.25rem) (16/16rem);
+    background-color: #1a1a1a;
+
+    .cs-container {
+      width: 100%;
+
+      /* reset on tablet */
+      max-width: (550/16rem);
+      margin: auto;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+
+      /* 68px - 100px */
+      column-gap: clamp(4.25rem, calc(8% + 2vw), 6.25rem);
+    }
+
+    .cs-logo-group {
+      /* takes up all the space, lets the other ul's wrap below it */
+      width: 100%;
+      position: relative;
+    }
+
+    .cs-logo {
+      /* 210px - 240px */
+      width: clamp(13.125rem, 8vw, 15rem);
+      height: auto;
+      display: block;
+
+      /* 28px - 44px */
+      margin-bottom: clamp(1.75rem, 4.17vw, 2.75rem);
+    }
+
+    .cs-logo-img {
+      width: 100%;
+      height: auto;
+    }
+
+    .cs-text {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 2.5vw, 1rem);
+      line-height: 1.5em;
+      margin: 0;
+      margin-bottom: (32/16rem);
+
+      /* changes to 305px at desktop */
+      max-width: (540/16rem);
+      color: var(--bodyTextColorWhite);
+    }
+
+    /* Navigation Links */
+    .cs-nav {
+      padding: 0;
+      margin: 0;
+    }
+
+    .cs-nav-li {
+      list-style: none;
+      line-height: 1.5em;
+      margin-bottom: (8/16rem);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .cs-header {
+      font-size: (16/16rem);
+      line-height: 1.5em;
+      font-weight: 700;
+      margin-bottom: (14/16rem);
+      color: var(--bodyTextColorWhite);
+      position: relative;
+      display: block;
+    }
+
+    .cs-nav-link {
+      font-size: (16/16rem);
+      text-decoration: none;
+      line-height: 1.5em;
+      color: var(--bodyTextColorWhite);
+      position: relative;
+
+      &::before {
+        /* underline */
+        content: '';
+        width: 0%;
+        height: (2/16rem);
+
+        /* current color of the parent */
+        background: currentcolor;
+        opacity: 1;
+        position: absolute;
+        display: block;
+        bottom: (-2/16rem);
+        left: 0;
+        transition: width 0.3s;
+      }
+
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+
+    /* Contact Links */
+    .cs-contact {
+      margin: 0;
+      padding: 0;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+    }
+
+    .cs-contact-li {
+      list-style: none;
+      margin-bottom: (0/16rem);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    .cs-contact-link {
+      font-size: (16/16rem);
+      text-decoration: none;
+      line-height: 1.5em;
+      text-align: left;
+      color: var(--bodyTextColorWhite);
+      display: inline-block;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .cs-address {
+      font-size: (16/16rem);
+      margin-bottom: (20/16rem);
+    }
+
+    .cs-social-group {
+      /* pushes away from the other flex items */
+      margin-top: auto;
+      margin-left: auto;
+    }
+
+    .cs-social {
+      display: inline-flex;
+      justify-content: flex-start;
+      gap: (12/16rem);
+    }
+
+    .cs-social-link {
+      width: (24/16rem);
+      height: (24/16rem);
+      background-color: #4e4b66;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      transition:
+        transform 0.3s,
+        background-color 0.3s;
+
+      &:hover {
+        background-color: var(--primary);
+        transform: translateY(-0.1875rem);
+      }
+    }
+
+    .cs-social-img {
+      height: (13/16rem);
+      width: auto;
+      display: block;
+    }
+  }
+}
+
+/* Tablet - 768px */
+@media only screen and (width >= 48rem) {
+  #cs-footer-269 {
+    .cs-container {
+      max-width: (1280/16rem);
+      row-gap: 0;
+    }
+
+    .cs-logo-group {
+      width: auto;
+
+      /* pushes everything to the right of it as far as possible in a flexbox */
+      margin-right: auto;
+    }
+
+    .cs-text {
+      width: 80%;
+      max-width: (305/16rem);
+      margin: 0;
+    }
+
+    .cs-nav,
+    .cs-contact {
+      /* 8px - 12px */
+      margin-top: clamp(0.5rem, 1.2vw, 0.75rem);
+    }
+  }
+}
